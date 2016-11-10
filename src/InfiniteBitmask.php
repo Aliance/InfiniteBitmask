@@ -23,6 +23,14 @@ class InfiniteBitmask
     }
 
     /**
+     * @return int[]
+     */
+    public function getMaskSlices()
+    {
+        return $this->maskSlices;
+    }
+
+    /**
      * @param int $bit
      * @return $this
      */
