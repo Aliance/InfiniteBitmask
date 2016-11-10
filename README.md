@@ -20,6 +20,55 @@ And just run installation command
     $ composer.phar install
 ```
 
+Usage
+---
+
+See usage in [sample](./example/example.php) file.
+
+```
+Aliance/InfiniteBitmask $ php -f example/example.php 
+Check user for all flags:
+Premium: no
+Wizard already shown: no
+Paid ever: no
+Referral: no
+Banned: no
+Already notified: no
+–––––––––––––––––––––––––––––––––––
+Check user for all flags:
+Premium: no
+Wizard already shown: no
+Paid ever: yes
+Referral: no
+Banned: yes
+Already notified: yes
+–––––––––––––––––––––––––––––––––––
+array(3) {
+  [0]=>
+  int(8)
+  [1]=>
+  int(1)
+  [2]=>
+  int(1)
+}
+Check user for all flags:
+Premium: no
+Wizard already shown: no
+Paid ever: yes
+Referral: no
+Banned: yes
+Already notified: no
+–––––––––––––––––––––––––––––––––––
+array(3) {
+  [0]=>
+  int(8)
+  [1]=>
+  int(1)
+  [2]=>
+  int(0)
+}
+```
+
 Tests
 ---
 
