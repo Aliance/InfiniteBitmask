@@ -16,14 +16,9 @@ class InfiniteBitmask
 
     /**
      * @param int[] $maskSlices
-     * @throws \InvalidArgumentException
      */
     public function __construct(array $maskSlices = [])
     {
-        if (!is_array($maskSlices)) {
-            throw new \InvalidArgumentException('Passed invalid argument: ' . gettype($maskSlices));
-        }
-
         $this->maskSlices = $maskSlices;
     }
 
