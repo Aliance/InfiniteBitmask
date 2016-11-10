@@ -1,0 +1,64 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "f916d5adf39c9358c0e2b2f82704d801",
+    "content-hash": "3874b42e451d92627e28df264d767f9a",
+    "packages": [
+        {
+            "name": "aliance/bitmask",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Aliance/Bitmask.git",
+                "reference": "a33b572f7cfb440e038212de4665248780baea49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Aliance/Bitmask/zipball/a33b572f7cfb440e038212de4665248780baea49",
+                "reference": "a33b572f7cfb440e038212de4665248780baea49",
+                "shasum": ""
+            },
+            "require": {
+                "php-64bit": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.27"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aliance\\Bitmask\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aliance",
+                    "email": "lesnykh.ilja@gmail.com"
+                }
+            ],
+            "description": "Simple bitmask implementation",
+            "homepage": "https://github.com/Aliance/Bitmask",
+            "keywords": [
+                "bitmask"
+            ],
+            "time": "2016-11-10 13:31:36"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php-64bit": ">=5.5"
+    },
+    "platform-dev": []
+}

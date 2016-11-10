@@ -1,0 +1,29 @@
+{
+  "name": "aliance/infinite-bitmask",
+  "description": "Infinite bitmask implementation",
+  "keywords": [
+    "bitmask"
+  ],
+  "homepage": "https://github.com/Aliance/InfiniteBitmask",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aliance",
+      "email": "lesnykh.ilja@gmail.com"
+    }
+  ],
+  "support": {
+    "email": "lesnykh.ilja@gmail.com",
+    "issues": "https://github.com/Aliance/InfiniteBitmask/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aliance\\InfiniteBitmask\\": "src/"
+    }
+  },
+  "require": {
+    "php-64bit": ">=5.5",
+    "aliance/bitmask": "*"
+  }
+}
