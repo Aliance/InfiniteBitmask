@@ -18,3 +18,19 @@ And just run installation command
 ```
     $ composer.phar install
 ```
+
+Tests
+---
+
+For completely tests running just call `phpunit` command from `./vendor/bin`
+
+```
+Aliance/InfiniteBitmask $ ./vendor/bin/phpunit 
+PHPUnit 4.8.27 by Sebastian Bergmann and contributors.
+
+........................
+
+Time: 100 ms, Memory: 4.00MB
+
+OK (24 tests, 72 assertions)
+```
