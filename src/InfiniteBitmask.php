@@ -57,7 +57,7 @@ class InfiniteBitmask
      */
     protected function getBitIndex($bit)
     {
-        return (int)($bit / Bitmask::MAX_BIT + 1);
+        return (int)($bit / (Bitmask::MAX_BIT + 1));
     }
 
     /**
@@ -74,7 +74,7 @@ class InfiniteBitmask
      */
     protected function getBitInSlice($bit)
     {
-        return $bit % Bitmask::MAX_BIT + 1;
+        return $bit % (Bitmask::MAX_BIT + 1);
     }
 
     /**
