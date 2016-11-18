@@ -84,3 +84,8 @@ Time: 100 ms, Memory: 4.00MB
 
 OK (24 tests, 72 assertions)
 ```
+
+License
+---
+
+This software is distributed under [MIT license](LICENSE).
