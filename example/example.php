@@ -22,9 +22,9 @@ define('HAS_WIZARD_ALREADY_SHOWN', 2);
 define('HAS_PAID_EVER', 3);
 define('IS_REFERRAL', 4);
 // ...
-define('IS_BANNED', 63); // bitmask number greater than 62*1
+define('IS_BANNED', 64); // bitmask number greater than 64*1-1
 // ...
-define('HAS_ALREADY_NOTIFIED', 126);  // bitmask number greater than 62*2
+define('HAS_ALREADY_NOTIFIED', 128);  // bitmask number greater than 64*2-1
 
 // some users from storage
 $user = [

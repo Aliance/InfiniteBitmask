@@ -51,10 +51,10 @@ class InfiniteBitmask
 
     /**
      * Returns bit index at bitmask slice.
-     * For example, if we store [0;62] bits:
-     * - bits [  0; 62] will be at index 0;
-     * - bits [ 63;125] will be at index 1;
-     * - bits [126;188] will be at index 2;
+     * For example, if we store [0;63] bits:
+     * - bits [  0; 63] will be at index 0;
+     * - bits [ 64;127] will be at index 1;
+     * - bits [128;191] will be at index 2;
      * @param int $bit
      * @return int
      */
@@ -68,10 +68,10 @@ class InfiniteBitmask
      * For example:
      * - bit   0 will be  0 bit at slice #0;
      * - bit   5 will be  5 bit at slice #0;
-     * - bit  62 will be 62 bit at slice #0;
-     * - bit  63 will be  0 bit at slice #1;
-     * - bit  68 will be  5 bit at slice #1;
-     * - bit 126 will be  0 bit at slice #2;
+     * - bit  63 will be 63 bit at slice #0;
+     * - bit  64 will be  0 bit at slice #1;
+     * - bit  69 will be  5 bit at slice #1;
+     * - bit 128 will be  0 bit at slice #2;
      * @param int $bit
      * @return int
      */
