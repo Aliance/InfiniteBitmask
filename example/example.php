@@ -1,5 +1,7 @@
 <?php
 
+require_once realpath(__DIR__ . '/../vendor/autoload.php');
+
 /*
  * For example, we have big project with users stored in some storage.
  * The main entity for us – users.
@@ -30,8 +32,6 @@ define('HAS_ALREADY_NOTIFIED', 128);  // bitmask number greater than 64*2-1
 $user = [
     'bitmasks' => [], // default empty bitmasks
 ];
-
-require_once realpath(dirname('.')) . '/vendor/autoload.php';
 
 // create a Bitmask object, passing user bitmask from storage
 $Bitmask = new \Aliance\InfiniteBitmask\InfiniteBitmask($user['bitmasks']);
