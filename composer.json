@@ -22,6 +22,11 @@
       "Aliance\\InfiniteBitmask\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Aliance\\InfiniteBitmask\\Tests\\": "tests/"
+    }
+  },
   "require": {
     "php-64bit": ">=5.5",
     "aliance/bitmask": "^1.1.0"

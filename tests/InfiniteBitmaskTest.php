@@ -1,4 +1,6 @@
 <?php
+namespace Aliance\InfiniteBitmask\Tests;
+
 use Aliance\InfiniteBitmask\InfiniteBitmask;
 use PHPUnit_Framework_TestCase as TestCase;
 
