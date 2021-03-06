@@ -9,7 +9,7 @@ Infinite bitmask implementation
 About
 ---
 
-Currently supported PHP version: >= 5.5
+Currently supported PHP version: >= 7.4
 
 Installation
 ---

@@ -19,10 +19,10 @@ require_once realpath(__DIR__ . '/../vendor/autoload.php');
  * or just one column with array of integers (simple bitmasks).
  */
 
-define('IS_PREMIUM', 1);
-define('HAS_WIZARD_ALREADY_SHOWN', 2);
-define('HAS_PAID_EVER', 3);
-define('IS_REFERRAL', 4);
+define('IS_PREMIUM', 0);
+define('HAS_WIZARD_ALREADY_SHOWN', 1);
+define('HAS_PAID_EVER', 2);
+define('IS_REFERRAL', 3);
 // ...
 define('IS_BANNED', 64); // bitmask number greater than 64*1-1
 // ...

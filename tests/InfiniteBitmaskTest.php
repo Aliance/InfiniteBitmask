@@ -1,8 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Aliance\InfiniteBitmask\Tests;
 
 use Aliance\InfiniteBitmask\InfiniteBitmask;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Unit tests for infinite bitmask implementation.
@@ -11,10 +14,8 @@ class InfiniteBitmaskTest extends TestCase
 {
     /**
      * @dataProvider getBitsWithMaskSlicesPairs
-     * @param int   $bit
-     * @param int[] $expectedMask
      */
-    public function testBits($bit, array $expectedMask)
+    public function testBits(int $bit, array $expectedMask): void
     {
         $InfiniteBitmask = new InfiniteBitmask();
 
@@ -35,10 +36,8 @@ class InfiniteBitmaskTest extends TestCase
 
     /**
      * @dataProvider getBitsWithMaskSlicesPairs
-     * @param int   $expectedBit
-     * @param int[] $maskSlices
      */
-    public function testGeneralUsage($expectedBit, array $maskSlices)
+    public function testGeneralUsage(int $expectedBit, array $maskSlices)
     {
         $InfiniteBitmask = new InfiniteBitmask($maskSlices);
 
@@ -48,10 +47,7 @@ class InfiniteBitmaskTest extends TestCase
         );
     }
 
-    /**
-     * @return array
-     */
-    public function getBitsWithMaskSlicesPairs()
+    public function getBitsWithMaskSlicesPairs(): array
     {
         return [
             [
@@ -100,7 +96,8 @@ class InfiniteBitmaskTest extends TestCase
             ],
             [
                 PHP_INT_MAX, // 9223372036854775807 for x64
-                [144115188075855872 => -9223372036854775808], // 144115188075855872 = 9223372036854775807/64, -9223372036854775808 = 2 ^ (9223372036854775807 % 64)
+                // we need cast to int, because php try to cast it in float automatically
+                [144115188075855872 => (int) 0x8000000000000000], // 144115188075855872 = 9223372036854775807/64, 9223372036854775808 = 2 ^ (9223372036854775808 % 64)
             ],
         ];
     }
