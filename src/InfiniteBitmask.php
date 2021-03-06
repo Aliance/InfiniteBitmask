@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Aliance\InfiniteBitmask;
 
 use Aliance\Bitmask\Bitmask;
@@ -12,7 +15,7 @@ class InfiniteBitmask
      * Mask slices list.
      * @var int[]
      */
-    private $maskSlices = [];
+    private array $maskSlices;
 
     /**
      * @param int[] $maskSlices
@@ -25,16 +28,12 @@ class InfiniteBitmask
     /**
      * @return int[]
      */
-    public function getMaskSlices()
+    public function getMaskSlices(): array
     {
         return $this->maskSlices;
     }
 
-    /**
-     * @param int $bit
-     * @return $this
-     */
-    public function setBit($bit)
+    public function setBit(int $bit): self
     {
         $indexKey = $this->getBitIndex($bit);
 
@@ -42,7 +41,7 @@ class InfiniteBitmask
             $this->maskSlices[$indexKey] = 0;
         }
 
-        $Bitmask = Bitmask::create($this->maskSlices[$indexKey]);
+        $Bitmask = new Bitmask($this->maskSlices[$indexKey]);
         $Bitmask->setBit($this->getBitInSlice($bit));
         $this->maskSlices[$indexKey] = $Bitmask->getMask();
 
@@ -55,12 +54,10 @@ class InfiniteBitmask
      * - bits [  0; 63] will be at index 0;
      * - bits [ 64;127] will be at index 1;
      * - bits [128;191] will be at index 2;
-     * @param int $bit
-     * @return int
      */
-    protected function getBitIndex($bit)
+    protected function getBitIndex(int $bit): int
     {
-        return (int)($bit / (Bitmask::MAX_BIT + 1));
+        return (int)($bit / (PHP_INT_SIZE * 8));
     }
 
     /**
@@ -72,19 +69,13 @@ class InfiniteBitmask
      * - bit  64 will be  0 bit at slice #1;
      * - bit  69 will be  5 bit at slice #1;
      * - bit 128 will be  0 bit at slice #2;
-     * @param int $bit
-     * @return int
      */
-    protected function getBitInSlice($bit)
+    protected function getBitInSlice(int $bit): int
     {
-        return $bit % (Bitmask::MAX_BIT + 1);
+        return $bit % (PHP_INT_SIZE * 8);
     }
 
-    /**
-     * @param int $bit
-     * @return bool
-     */
-    public function issetBit($bit)
+    public function issetBit(int $bit): bool
     {
         $indexKey = $this->getBitIndex($bit);
 
@@ -92,19 +83,15 @@ class InfiniteBitmask
             return false;
         }
 
-        return Bitmask::create($this->maskSlices[$indexKey])->issetBit($this->getBitInSlice($bit));
+        return (new Bitmask($this->maskSlices[$indexKey]))->issetBit($this->getBitInSlice($bit));
     }
 
-    /**
-     * @param int $bit
-     * @return $this
-     */
-    public function unsetBit($bit)
+    public function unsetBit(int $bit): self
     {
         $indexKey = $this->getBitIndex($bit);
 
         if (isset($this->maskSlices[$indexKey])) {
-            $Bitmask = Bitmask::create($this->maskSlices[$indexKey]);
+            $Bitmask = new Bitmask($this->maskSlices[$indexKey]);
             $Bitmask->unsetBit($this->getBitInSlice($bit));
             $this->maskSlices[$indexKey] = $Bitmask->getMask();
         }
