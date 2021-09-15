@@ -3,13 +3,14 @@ Infinite bitmask implementation
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Packagist](https://img.shields.io/packagist/v/aliance/infinite-bitmask.svg)](https://packagist.org/packages/aliance/infinite-bitmask)
+![PHP Version](https://img.shields.io/badge/PHP-7.4-green.svg)
 [![Build Status](https://travis-ci.org/Aliance/InfiniteBitmask.svg?branch=master)](https://travis-ci.org/Aliance/InfiniteBitmask)
 [![Code Coverage](https://scrutinizer-ci.com/g/Aliance/InfiniteBitmask/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Aliance/InfiniteBitmask/?branch=master)
 
 About
 ---
 
-Currently supported PHP version: >= 7.4
+Based on [Aliance/Bitmask](https://github.com/Aliance/Bitmask), but without max bits limitation.
 
 Installation
 ---
@@ -17,7 +18,7 @@ Installation
 Install the latest version with composer:
 
 ```bash
-$ composer require aliance/infinite-bitmask
+composer require aliance/infinite-bitmask
 ```
 
 Usage
@@ -25,8 +26,10 @@ Usage
 
 See usage in [sample](./example/example.php) file.
 
-```
-Aliance/InfiniteBitmask $ php -f example/example.php 
+```bash
+docker run -it --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:7.4-cli php example/example.php 
+``` 
+``` 
 Check user for all flags:
 Premium: no
 Wizard already shown: no
@@ -72,7 +75,10 @@ array(3) {
 Tests
 ---
 
-For completely tests running just call `composer exec phpunit`
+For completely tests running just call `composer exec phpunit` or use
+```bash
+docker run -it --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:7.4-cli php ./vendor/bin/phpunit
+```
 
 License
 ---
