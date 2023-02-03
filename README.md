@@ -4,7 +4,6 @@ Infinite bitmask implementation
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Packagist](https://img.shields.io/packagist/v/aliance/infinite-bitmask.svg)](https://packagist.org/packages/aliance/infinite-bitmask)
 ![PHP Version](https://img.shields.io/badge/PHP-7.4-green.svg)
-[![Build Status](https://travis-ci.org/Aliance/InfiniteBitmask.svg?branch=master)](https://travis-ci.org/Aliance/InfiniteBitmask)
 [![Code Coverage](https://scrutinizer-ci.com/g/Aliance/InfiniteBitmask/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Aliance/InfiniteBitmask/?branch=master)
 
 About
