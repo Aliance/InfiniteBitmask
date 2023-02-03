@@ -33,7 +33,7 @@
   },
   "require": {
     "php-64bit": ">=8.1",
-    "aliance/bitmask": "^2.0"
+    "aliance/bitmask": "^3.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.0"
