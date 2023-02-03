@@ -4,27 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7d0f3c29ea1a23926ab542a3b304a09",
+    "content-hash": "23d0f9ac7e3e947714984cc843a6b04a",
     "packages": [
         {
             "name": "aliance/bitmask",
-            "version": "2.0.1",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Aliance/Bitmask.git",
-                "reference": "46a312f3b7d5a5195421b4ef487c4537d2a8e403"
+                "reference": "f426443c406766d45cee7ff4343bc606059a3d1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Aliance/Bitmask/zipball/46a312f3b7d5a5195421b4ef487c4537d2a8e403",
-                "reference": "46a312f3b7d5a5195421b4ef487c4537d2a8e403",
+                "url": "https://api.github.com/repos/Aliance/Bitmask/zipball/f426443c406766d45cee7ff4343bc606059a3d1a",
+                "reference": "f426443c406766d45cee7ff4343bc606059a3d1a",
                 "shasum": ""
             },
             "require": {
-                "php-64bit": ">=7.4"
+                "php-64bit": ">=8.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~9"
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
@@ -51,7 +51,12 @@
             "keywords": [
                 "bitmask"
             ],
-            "time": "2021-09-13T14:10:06+00:00"
+            "support": {
+                "email": "lesnykh.ilja@gmail.com",
+                "issues": "https://github.com/Aliance/Bitmask/issues",
+                "source": "https://github.com/Aliance/Bitmask/tree/3.0.0"
+            },
+            "time": "2023-02-03T00:22:02+00:00"
         }
     ],
     "packages-dev": [
@@ -186,16 +191,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.15.2",
+            "version": "v4.15.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "f59bbe44bf7d96f24f3e2b4ddc21cd52c1d2adbc"
+                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f59bbe44bf7d96f24f3e2b4ddc21cd52c1d2adbc",
-                "reference": "f59bbe44bf7d96f24f3e2b4ddc21cd52c1d2adbc",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/570e980a201d8ed0236b0a62ddf2c9cbb2034039",
+                "reference": "570e980a201d8ed0236b0a62ddf2c9cbb2034039",
                 "shasum": ""
             },
             "require": {
@@ -236,9 +241,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.2"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.3"
             },
-            "time": "2022-11-12T15:38:23+00:00"
+            "time": "2023-01-16T22:05:37+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -353,16 +358,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.23",
+            "version": "9.2.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c"
+                "reference": "2cf940ebc6355a9d430462811b5aaa308b174bed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c",
-                "reference": "9f1f0f9a2fbb680b26d1cf9b61b6eac43a6e4e9c",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/2cf940ebc6355a9d430462811b5aaa308b174bed",
+                "reference": "2cf940ebc6355a9d430462811b5aaa308b174bed",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +423,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.23"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.24"
             },
             "funding": [
                 {
@@ -426,7 +431,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-28T12:41:10+00:00"
+            "time": "2023-01-26T08:26:55+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
