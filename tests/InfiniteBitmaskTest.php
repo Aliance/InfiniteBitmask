@@ -5,49 +5,48 @@ declare(strict_types=1);
 namespace Aliance\InfiniteBitmask\Tests;
 
 use Aliance\InfiniteBitmask\InfiniteBitmask;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Unit tests for infinite bitmask implementation.
  */
+#[CoversClass(InfiniteBitmask::class)]
 class InfiniteBitmaskTest extends TestCase
 {
-    /**
-     * @dataProvider getBitsWithMaskSlicesPairs
-     */
+    #[DataProvider('getBitsWithMaskSlicesPairs')]
     public function testBits(int $bit, array $expectedMask): void
     {
         $InfiniteBitmask = new InfiniteBitmask();
 
-        $this->assertFalse($InfiniteBitmask->issetBit($bit));
-        $this->assertEmpty($InfiniteBitmask->getMaskSlices());
+        self::assertFalse($InfiniteBitmask->issetBit($bit));
+        self::assertEmpty($InfiniteBitmask->getMaskSlices());
 
         $InfiniteBitmask->setBit($bit);
 
-        $this->assertTrue($InfiniteBitmask->issetBit($bit));
-        $this->assertEquals($expectedMask, $InfiniteBitmask->getMaskSlices());
+        self::assertTrue($InfiniteBitmask->issetBit($bit));
+        self::assertSame($expectedMask, $InfiniteBitmask->getMaskSlices());
 
         $InfiniteBitmask->unsetBit($bit);
 
-        $this->assertFalse($InfiniteBitmask->issetBit($bit));
+        self::assertFalse($InfiniteBitmask->issetBit($bit));
         // TODO: mb unset whole key while only 0 mask present?
-        //$this->assertEmpty($InfiniteBitmask->getMaskSlices());
+        //self::assertEmpty($InfiniteBitmask->getMaskSlices());
     }
 
-    /**
-     * @dataProvider getBitsWithMaskSlicesPairs
-     */
+    #[DataProvider('getBitsWithMaskSlicesPairs')]
     public function testGeneralUsage(int $expectedBit, array $maskSlices)
     {
         $InfiniteBitmask = new InfiniteBitmask($maskSlices);
 
-        $this->assertTrue(
+        self::assertTrue(
             $InfiniteBitmask->issetBit($expectedBit),
             sprintf('Bit #%d was not set as expected.', $expectedBit)
         );
     }
 
-    public function getBitsWithMaskSlicesPairs(): array
+    public static function getBitsWithMaskSlicesPairs(): array
     {
         return [
             [
