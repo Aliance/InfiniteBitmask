@@ -1,0 +1,25 @@
+name: Audit locked dependencies
+
+on:
+  schedule:
+    - cron: '19 6 * * 1'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'composer.lock'
+      - '.github/workflows/dependency-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:v2
+          coverage: none
+      - run: composer audit --locked
