@@ -15,6 +15,29 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(InfiniteBitmask::class)]
 class InfiniteBitmaskTest extends TestCase
 {
+    #[DataProvider('negativePositions')]
+    public function testNegativePositionIsRejected(string $method, int $bit, array $slices): void
+    {
+        $mask = new InfiniteBitmask($slices);
+        $this->expectException(\InvalidArgumentException::class);
+
+        try {
+            $mask->$method($bit);
+        } finally {
+            self::assertSame($slices, $mask->getMaskSlices());
+        }
+    }
+
+    public static function negativePositions(): iterable
+    {
+        foreach (['setBit', 'issetBit', 'unsetBit'] as $method) {
+            foreach ([-1, -64] as $bit) {
+                yield "$method($bit) on an empty mask" => [$method, $bit, []];
+                yield "$method($bit) on a populated mask" => [$method, $bit, [0 => 1]];
+            }
+        }
+    }
+
     #[DataProvider('getBitsWithMaskSlicesPairs')]
     public function testBits(int $bit, array $expectedMask): void
     {

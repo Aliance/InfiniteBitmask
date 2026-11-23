@@ -29,6 +29,9 @@ docker run --rm -it --volume $PWD:/app -u $(id -u):$(id -g) composer:2 i
 Usage
 ---
 
+Pass a non-negative bit position to `setBit()`, `issetBit()` and `unsetBit()`.
+All three methods throw `InvalidArgumentException` for a negative position.
+
 ```php
 use Aliance\InfiniteBitmask\InfiniteBitmask;
 
