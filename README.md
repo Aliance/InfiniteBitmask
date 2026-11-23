@@ -3,13 +3,13 @@ Infinite bitmask implementation
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Packagist](https://img.shields.io/packagist/v/aliance/infinite-bitmask.svg)](https://packagist.org/packages/aliance/infinite-bitmask)
-![PHP Version](https://img.shields.io/badge/PHP-8.3-green.svg)
-[![Code Coverage](https://codecov.io/gh/Aliance/Bitmask/branch/master/graph/badge.svg)](https://codecov.io/gh/Aliance/Bitmask)
+![PHP Version](https://img.shields.io/badge/PHP-8.1-green.svg)
+[![Code Coverage](https://codecov.io/gh/Aliance/InfiniteBitmask/branch/master/graph/badge.svg)](https://codecov.io/gh/Aliance/InfiniteBitmask)
 
 About
 ---
 
-Based on [Aliance/Bitmask](https://github.com/Aliance/Bitmask), but without max bits limitation.
+Based on [Aliance/Bitmask](https://github.com/Aliance/Bitmask), but without max bits' limitation.
 
 Installation
 ---
@@ -29,7 +29,7 @@ docker run --rm -it --volume $PWD:/app -u $(id -u):$(id -g) composer:2 i
 Usage
 ---
 
-See usage in [sample](./example/example.php) file.
+See usage in [the sample](./example/example.php) file.
 
 ```bash
 docker run -it --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:8.3-cli php example/example.php 
@@ -80,7 +80,7 @@ array(3) {
 Tests
 ---
 
-For completely tests running just call `composer exec phpunit` or use
+For complete tests running just call `composer exec phpunit` or use
 ```bash
 docker run -it --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:8.3-cli php ./vendor/bin/phpunit
 ```
