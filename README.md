@@ -29,52 +29,32 @@ docker run --rm -it --volume $PWD:/app -u $(id -u):$(id -g) composer:2 i
 Usage
 ---
 
-See usage in [the sample](./example/example.php) file.
+```php
+use Aliance\InfiniteBitmask\InfiniteBitmask;
+
+$mask = new InfiniteBitmask();
+$mask->setBit(2)->setBit(64);
+
+var_dump($mask->issetBit(64));     // bool(true)
+var_dump($mask->getMaskSlices());  // [0 => 4, 1 => 1]
+```
+
+The [permission example](./example/example.php) uses an integer-backed enum for bit positions.
+A user already has Create permission. Granting Read sets another bit in slice 0.
+Granting ViewAuditLog (bit 128) creates slice 2. When saving the array returned by
+`getMaskSlices()`, keep its numeric keys so the constructor can restore the permissions.
 
 ```bash
-docker run -it --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:8.3-cli php example/example.php 
-``` 
-``` 
-Check user for all flags:
-Premium: no
-Wizard already shown: no
-Paid ever: no
-Referral: no
-Banned: no
-Already notified: no
-–––––––––––––––––––––––––––––––––––
-Check user for all flags:
-Premium: no
-Wizard already shown: no
-Paid ever: yes
-Referral: no
-Banned: yes
-Already notified: yes
-–––––––––––––––––––––––––––––––––––
-array(3) {
-  [0]=>
-  int(8)
-  [1]=>
-  int(1)
-  [2]=>
-  int(1)
-}
-Check user for all flags:
-Premium: no
-Wizard already shown: no
-Paid ever: yes
-Referral: no
-Banned: yes
-Already notified: no
-–––––––––––––––––––––––––––––––––––
-array(3) {
-  [0]=>
-  int(8)
-  [1]=>
-  int(1)
-  [2]=>
-  int(0)
-}
+docker run --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:8.3-cli php example/example.php
+```
+
+```text
+Stored slice 0: 3
+Stored slice 2: 1
+Create: yes
+Read: yes
+Delete: no
+ViewAuditLog: yes
 ```
 
 Tests
