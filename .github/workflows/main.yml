@@ -20,7 +20,7 @@ jobs:
         php_version: ['8.3', '8.4', '8.5', '8.6']
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - uses: shivammathur/setup-php@v2
         with:
@@ -36,7 +36,7 @@ jobs:
     name: PHPUnit 13 on PHP 8.4
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Setup PHP with pcov
         uses: shivammathur/setup-php@v2
