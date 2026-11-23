@@ -35,7 +35,7 @@ class InfiniteBitmask
 
     public function setBit(int $bit): self
     {
-        $indexKey = $this->getBitIndex($bit);
+        $indexKey = $this->getCheckedBitIndex($bit);
 
         if (!isset($this->maskSlices[$indexKey])) {
             $this->maskSlices[$indexKey] = 0;
@@ -75,9 +75,18 @@ class InfiniteBitmask
         return $bit % (PHP_INT_SIZE * 8);
     }
 
+    private function getCheckedBitIndex(int $bit): int
+    {
+        if ($bit < 0) {
+            throw new \InvalidArgumentException(sprintf('Bit position must be non-negative, got %d.', $bit));
+        }
+
+        return $this->getBitIndex($bit);
+    }
+
     public function issetBit(int $bit): bool
     {
-        $indexKey = $this->getBitIndex($bit);
+        $indexKey = $this->getCheckedBitIndex($bit);
 
         if (!isset($this->maskSlices[$indexKey])) {
             return false;
@@ -88,7 +97,7 @@ class InfiniteBitmask
 
     public function unsetBit(int $bit): self
     {
-        $indexKey = $this->getBitIndex($bit);
+        $indexKey = $this->getCheckedBitIndex($bit);
 
         if (isset($this->maskSlices[$indexKey])) {
             $Bitmask = new Bitmask($this->maskSlices[$indexKey]);
