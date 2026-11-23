@@ -31,8 +31,22 @@ class InfiniteBitmaskTest extends TestCase
         $InfiniteBitmask->unsetBit($bit);
 
         self::assertFalse($InfiniteBitmask->issetBit($bit));
-        // TODO: mb unset whole key while only 0 mask present?
-        //self::assertEmpty($InfiniteBitmask->getMaskSlices());
+        self::assertSame(array_fill_keys(array_keys($expectedMask), 0), $InfiniteBitmask->getMaskSlices());
+    }
+
+    public function testSparseSlicesSurviveStorageRoundTrip(): void
+    {
+        $mask = new InfiniteBitmask();
+        $mask->setBit(63)->setBit(64)->setBit(192)->unsetBit(64);
+        $slices = $mask->getMaskSlices();
+        self::assertSame([0 => PHP_INT_MIN, 1 => 0, 3 => 1], $slices);
+
+        $restored = new InfiniteBitmask($slices);
+        self::assertSame($slices, $restored->getMaskSlices());
+        self::assertTrue($restored->issetBit(63));
+        self::assertFalse($restored->issetBit(64));
+        self::assertFalse($restored->issetBit(128));
+        self::assertTrue($restored->issetBit(192));
     }
 
     #[DataProvider('getBitsWithMaskSlicesPairs')]
