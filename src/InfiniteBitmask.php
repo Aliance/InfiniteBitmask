@@ -57,7 +57,7 @@ class InfiniteBitmask
      */
     protected function getBitIndex(int $bit): int
     {
-        return (int)($bit / (PHP_INT_SIZE * 8));
+        return intdiv($bit, PHP_INT_SIZE * 8);
     }
 
     /**
