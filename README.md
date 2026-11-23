@@ -43,6 +43,9 @@ The [permission example](./example/example.php) uses an integer-backed enum for 
 A user already has Create permission. Granting Read sets another bit in slice 0.
 Granting ViewAuditLog (bit 128) creates slice 2. When saving the array returned by
 `getMaskSlices()`, keep its numeric keys so the constructor can restore the permissions.
+Each key is a slice index and each value is a signed 64-bit mask. Bit 63 sets the
+sign bit of slice 0. Unsetting the last bit in an existing slice leaves its value
+at zero. Slices that were never set can be absent.
 
 ```bash
 docker run --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:8.3-cli php example/example.php
