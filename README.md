@@ -68,6 +68,15 @@ For complete tests running just call `composer exec phpunit` or use
 docker run -it --rm -v "$PWD":/usr/src/infinite-bitmask -w /usr/src/infinite-bitmask php:8.3-cli php ./vendor/bin/phpunit
 ```
 
+Upgrading stored masks
+---
+
+Earlier releases could round the slice index for bit positions above `2^53`.
+For example, setting `PHP_INT_MAX` could also make `PHP_INT_MAX - 64` appear set.
+If you used positions in this range, rebuild the affected masks from the original
+bit positions before loading them with this version. When positions collided, the
+stored mask alone cannot identify which flags were originally set.
+
 License
 ---
 

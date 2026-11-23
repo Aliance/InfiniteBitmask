@@ -60,6 +60,17 @@ class InfiniteBitmaskTest extends TestCase
         );
     }
 
+    public function testLargestBitsInAdjacentSlicesAreIndependent(): void
+    {
+        $mask = new InfiniteBitmask();
+        $mask->setBit(PHP_INT_MAX);
+        self::assertFalse($mask->issetBit(PHP_INT_MAX - 64));
+
+        $mask->setBit(PHP_INT_MAX - 64)->unsetBit(PHP_INT_MAX);
+        self::assertTrue($mask->issetBit(PHP_INT_MAX - 64));
+        self::assertFalse($mask->issetBit(PHP_INT_MAX));
+    }
+
     public static function getBitsWithMaskSlicesPairs(): array
     {
         return [
@@ -108,9 +119,8 @@ class InfiniteBitmaskTest extends TestCase
                 [15625 => 1], // 15625 = 1000000/64, 1 = 2 ^ (1000000 % 64)
             ],
             [
-                PHP_INT_MAX, // 9223372036854775807 for x64
-                // we need cast to int, because php try to cast it in float automatically
-                [144115188075855872 => (int) 0x8000000000000000], // 144115188075855872 = 9223372036854775807/64, 9223372036854775808 = 2 ^ (9223372036854775808 % 64)
+                PHP_INT_MAX,
+                [144115188075855871 => PHP_INT_MIN],
             ],
         ];
     }
